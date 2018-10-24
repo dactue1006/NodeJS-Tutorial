@@ -7,13 +7,17 @@
   <title>Document</title>
 </head>
 <body>
+  <a href="/user/create">new</a>
   <form action='/user/search' method="GET">
-    <input type="text" name="q" value=<%= preText %>/>
+    <input type="text" name="search" value='<%= preText %>'/>
     <input type="submit" value='search'/>
   </form>
   <ul>
     <% for(let i = 0; i < data.length; i++) {%>
-      <li><%= data[i].name %></li>
+      <li>
+        <span><%= data[i].name %></span>
+        <a href='/user/<%= data[i].id %>'> view</a>
+      </li>
     <% } %>
   </ul>
 </body>
