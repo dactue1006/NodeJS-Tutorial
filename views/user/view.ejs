@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <% include ../partials/head %>
+
 </head>
-<body>
-  <h1>View user</h1>
-  <p>name: <%= user.name %></p>
+<body >
+  <% include ../partials/navbar %>
+  <div class="container">
+    <h1>View user</h1>
+    <p>name: <%= user.name %></p>
+  </div>
 </body>
 </html>
