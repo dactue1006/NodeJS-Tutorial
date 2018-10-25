@@ -1,5 +1,7 @@
 const express = require('express');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser')
+
 const userRoutes = require('./routes/user.route');
 const db = require('./db');
 
@@ -12,6 +14,9 @@ db.defaults({ user: [] })
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(cookieParser())
+
+
 app.use(express.static('public'));
   
 app.set('view engine', 'ejs');
