@@ -5,12 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <% include ../partials/head %>
 </head>
 <body>
-  <h1>User create</h1>
-  <form action="/user/create" method="POST">
-    name: <input type="text" name="name">
-    <button>create</button>
-  </form>
+  <% include ../partials/navbar %>
+  <div class="container">
+    <% if (errors) { %>
+      <% for (let i of errors) { %>
+        <div class="alert alert-danger"><%= i %></div>
+      <% } %>
+    <% } %>
+    <h1>User create</h1>
+    <form action="/user/create" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="name" name="name" 
+          placeholder="Enter your name"
+          value="<%= value ? value.name : ''%>">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="phone" name="phone" 
+          placeholder="Enter your phone number"
+          value="<%= value ? value.phone : ''%>">
+      </div>  
+      <button type='submit' class='btn btn-primary'>Create</button>
+    </form>
+  </div>
 </body>
 </html>

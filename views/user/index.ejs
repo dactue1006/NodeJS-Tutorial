@@ -5,20 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <!-- Latest compiled and minified CSS -->
+  <% include ../partials/head %>
+  <link rel="stylesheet" href="/stylesheet/custom.css">
 </head>
 <body>
-  <a href="/user/create">new</a>
-  <form action='/user/search' method="GET">
-    <input type="text" name="search" value='<%= preText %>'/>
-    <input type="submit" value='search'/>
-  </form>
-  <ul>
-    <% for(let i = 0; i < data.length; i++) {%>
-      <li>
-        <span><%= data[i].name %></span>
-        <a href='/user/<%= data[i].id %>'> view</a>
-      </li>
-    <% } %>
-  </ul>
+  <% include ../partials/navbar %>
+  <div class="container">
+    <h1 class='header'> User</h1>
+    <div>
+      <a href="/user/create" class='btn btn-primary mb-1'>new</a>
+      <form action='/user/search' method="GET" class='form-group d-flex'>
+        <input type="text" name="search" value='<%= preText %>'class="form-control"/>
+        <input type="submit" value='search' class="btn btn-primary ml-2"/>
+      </form>
+    </div>
+    <table class='table'>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Action</th>
+
+      <% for(let i = 0; i < data.length; i++) {%>
+        <tr>
+          <td><%= data[i].name %></td>
+          <td><%= data[i].phone %></td>
+          <td><a class='btn btn-light' href='/user/<%= data[i].id %>'> view</a></td>
+        </tr>
+      <% } %>
+    </table>
+      
+  </div>
 </body>
 </html>
