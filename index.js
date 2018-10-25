@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
 
 const userRoutes = require('./routes/user.route');
+const authRoutes = require('./routes/auth.route');
+
 const db = require('./db');
 
 const app = new express();
@@ -27,6 +29,7 @@ app.get('/', (request, response)=>{
 })
 
 app.use('/user', userRoutes);
+app.use('/auth', authRoutes);
 
 app.listen(port, () => {
   console.log('Server is running on port 8000');
