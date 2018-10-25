@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <% include ../partials/head %>
+</head>
+<body>
+    <% include ../partials/navbar %>
+    <% if (errors) { %>
+      <% for (let i of errors) { %>
+        <div class="alert alert-danger"><%= i %></div>
+      <% } %>
+    <% } %>
+    <div class='container'>
+      <form action="/auth/login" method="POST">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            class="form-control" 
+            id="password" name="password" >
+        </div>  
+        <button type='submit' class='btn btn-primary'>Login</button>
+      </form>
+    </div>
+</body>
+</html>
