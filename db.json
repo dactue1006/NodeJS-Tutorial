@@ -2,9 +2,7 @@
   "user": [
     {
       "id": "1",
-      "name": "nguyen tue",
-      "password": "e10adc3949ba59abbe56e057f20f883e",
-      "email": "dactue1006@gmail.com"
+      "name": "nguyen tue"
     },
     {
       "id": "2",
@@ -13,7 +11,9 @@
     {
       "name": "Clock back with circular arrow",
       "phone": "01677473272",
-      "id": "Oinx8q7VF"
+      "id": "Oinx8q7VF",
+      "password": "e10adc3949ba59abbe56e057f20f883e",
+      "email": "dactue1006@gmail.com"
     }
   ]
 }

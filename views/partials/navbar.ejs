@@ -9,6 +9,10 @@
       <a class="nav-item nav-link" href="#">Features</a>
       <a class="nav-item nav-link" href="#">Pricing</a>
       <a class="nav-item nav-link disabled" href="#">Disabled</a>
+
     </div>
   </div>
+  <% if (user) { %>
+    <p><%= user.name %></p>
+  <% } %>
 </nav>

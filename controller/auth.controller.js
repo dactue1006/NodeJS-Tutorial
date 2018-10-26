@@ -3,7 +3,8 @@ const md5 = require('md5');
 
 module.exports.login = (req, res) => {
   res.render('auth/login', {
-    errors: []
+    errors: [],
+    user: null
   });
 }
 
@@ -17,7 +18,8 @@ module.exports.postLogin = (req, res) => {
     res.render('auth/login', {
       errors: [
         "user doesn't exist"
-      ]
+      ],
+      user: null
     })
     return;
   }
@@ -26,11 +28,14 @@ module.exports.postLogin = (req, res) => {
     res.render('auth/login', {
       errors: [
         "Wrong password"
-      ]
+      ],
+      user: null
     })
     return;
   }
   
-  res.cookie('userId', user.id);
+  res.cookie('userId', user.id, {
+    signed: true
+  });
   res.redirect('/user');
 }
