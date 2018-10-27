@@ -5,6 +5,10 @@ const authMiddleware = require('../middleware/auth.middleware');
 
 const router = express.Router();
 
+const multer = require('multer');
+var upload = multer({ dest: './public/uploads/' })
+
+
 router.get('/', authMiddleware.requireAuth, controller.index);
 
 router.get('/cookie', (req, res, next) => {
@@ -16,7 +20,11 @@ router.get('/search', controller.search)
 
 router.get('/create', controller.create);
 
-router.post('/create', validate.postCreate, controller.postCreate);
+router.post('/create', 
+  upload.single('avatar'),
+  validate.postCreate, 
+  controller.postCreate
+);
 
 router.get('/:id', controller.get);
 
