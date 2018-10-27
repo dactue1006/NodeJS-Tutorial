@@ -21,12 +21,14 @@
       </form>
     </div>
     <table class='table'>
+      <th>Avatar</th>
       <th>Name</th>
       <th>Phone</th>
       <th>Action</th>
 
       <% for(let i = 0; i < data.length; i++) {%>
         <tr>
+          <td><img style="width: 32px; height: 32px" src=<%= data[i].avatar %> alt='avatar'></td>
           <td><%= data[i].name %></td>
           <td><%= data[i].phone %></td>
           <td><a class='btn btn-light' href='/user/<%= data[i].id %>'> view</a></td>
