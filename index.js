@@ -1,6 +1,5 @@
 require('dotenv').config();
 console.log(process.env.SESSION_SECRET);
-console.log(process.env);
 
 const express = require('express');
 var bodyParser = require('body-parser');
@@ -8,6 +7,7 @@ var cookieParser = require('cookie-parser')
 
 const userRoutes = require('./routes/user.route');
 const authRoutes = require('./routes/auth.route');
+const productRoutes = require('./routes/product.router');
 
 const db = require('./db');
 
@@ -29,11 +29,16 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 app.get('/', (request, response)=>{
-  response.render('home', { title: 'hello express', link: '/user'});
+  response.render('home', { 
+    title: 'hello express', 
+    link: '/user',
+    user: null
+  });
 })
 
 app.use('/user', userRoutes);
 app.use('/auth', authRoutes);
+app.use('/products', productRoutes);
 
 app.listen(port, () => {
   console.log('Server is running on port 8000');
