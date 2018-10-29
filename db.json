@@ -623,5 +623,19 @@
       "image": "https://loremflickr.com/320/240",
       "description": "morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed"
     }
+  ],
+  "session": [
+    {
+      "id": "hlvejjMRi",
+      "cart": {
+        "6f4316b7-877f-4b92-b1ce-8005a21eb53c": 1
+      }
+    },
+    {
+      "id": "OMXaDXouI",
+      "cart": {
+        "6f4316b7-877f-4b92-b1ce-8005a21eb53c": 2
+      }
+    }
   ]
 }
