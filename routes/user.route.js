@@ -1,7 +1,6 @@
 const express = require('express');
 const controller = require('../controller/user.controller');
 const validate = require('../validate/user.validate');
-const authMiddleware = require('../middleware/auth.middleware');
 
 const router = express.Router();
 
@@ -9,7 +8,7 @@ const multer = require('multer');
 var upload = multer({ dest: './public/uploads/' })
 
 
-router.get('/', authMiddleware.requireAuth, controller.index);
+router.get('/', controller.index);
 
 router.get('/cookie', (req, res, next) => {
   res.cookie('user-id', 12345);
