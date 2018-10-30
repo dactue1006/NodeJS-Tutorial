@@ -23,7 +23,6 @@ module.exports.postLogin = (req, res) => {
     })
     return;
   }
-  console.log(user);
   if (md5(password) !== user.password) {
     res.render('auth/login', {
       errors: [

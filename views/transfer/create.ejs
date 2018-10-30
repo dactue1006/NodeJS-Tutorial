@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <% include ../partials/head %>
+</head>
+<body>
+  <% include ../partials/navbar %>
+  <div class='container'>
+    <h1>Transfer</h1>
+    <form method="POST">
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <div class="form-group">
+        <label for="accountId">Account</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="accountId" name="accountId">
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="amount" name="amount" >
+      </div>  
+      <button type='submit' class='btn btn-primary'>Transfer</button>
+    </form>
+  </div>
+</body>
+</html>
