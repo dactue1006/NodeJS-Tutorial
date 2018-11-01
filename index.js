@@ -10,7 +10,7 @@ mongoose.connect(process.env.MONGO_URL);
 
 const userRoutes = require('./routes/user.route');
 const authRoutes = require('./routes/auth.route');
-const productRoutes = require('./routes/product.router');
+const productRoutes = require('./routes/product.route');
 const cartRoutes = require('./routes/cart.route');
 const transferRoutes = require('./routes/transfer.route');
 
@@ -31,7 +31,7 @@ db.defaults({ user: [] })
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET))
-app.use(csurf({ cookie: true }))
+//app.use(csurf({ cookie: true }))
 
 app.use(sessionMiddleware);
 
