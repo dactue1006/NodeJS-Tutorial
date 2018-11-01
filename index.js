@@ -17,6 +17,8 @@ const transferRoutes = require('./routes/transfer.route');
 const authMiddleware = require('./middleware/auth.middleware');
 const sessionMiddleware = require('./middleware/session.middleware');
 
+const apiProductRoute = require('./api/routes/product.route');
+
 const db = require('./db');
 
 const app = new express();
@@ -51,6 +53,7 @@ app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
 app.use('/cart', cartRoutes);
 app.use('/transfer', authMiddleware.requireAuth, transferRoutes);
+app.use('/api/products', apiProductRoute);
 
 app.listen(port, () => {
   console.log('Server is running on port 8000');
