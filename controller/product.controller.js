@@ -10,9 +10,15 @@ module.exports.index = async (req, res, next) => {
   //   //products: db.get('products').value().slice(start, end),
   //   products: db.get('products').drop(end).take(itemPerPage).value(),
   // })
-  var products = await Product.find();
-  res.render('products/index', {
-    user: null,
-    products: products
-  })
+  try{
+    var products = await Product.find();
+    products.foo();
+    res.render('products/index', {
+      user: null,
+      products: products
+    })
+  } catch(error) {
+    next(error);
+  }
+
 }
